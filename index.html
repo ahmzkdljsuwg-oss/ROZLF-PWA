@@ -503,6 +503,241 @@ html[dir=ltr] .sheet-panel{animation:slideInL .22s ease}
 .smc-row b{font-weight:600;color:#e6f0fa;font-size:9.5px}
 .smc-row.buy{background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.18)}
 .smc-row.sell{background:rgba(244,63,94,.08);border:1px solid rgba(244,63,94,.18)}
+
+/* ══════════ ROZLF v3.5 — professional dark/light trading UI ══════════ */
+:root{
+ --gold:#F5C451; --gold2:#FFDB7A; --gold-dim:rgba(245,196,81,.14); --gold-br:rgba(245,196,81,.42);
+ --teal:#F5C451; --teal-dim:rgba(245,196,81,.14); --teal-br:rgba(245,196,81,.42);
+ --ink:#070B12; --navy:#0B1424; --navy2:#101C31;
+ --bg:#070B12; --bg2:#0A1220; --bg3:#0E192B; --bg4:#14233A;
+ --card:rgba(14,25,43,.82); --border:rgba(154,180,220,.13); --border2:rgba(245,196,81,.32);
+ --text:#F2F5FA; --text2:#C3CFDF; --muted:#8798AD;
+ --up:#22C58B; --down:#F0506E; --accent:#F5C451; --accent2:#FFDB7A;
+ --shadow:0 16px 40px rgba(0,0,0,.38);
+}
+html[data-theme="light"]{
+ --bg:#F5F3EC; --bg2:#EFEBE0; --bg3:#FFFFFF; --bg4:#FFF8E1;
+ --navy:#FFFFFF; --navy2:#FAF7EE;
+ --card:rgba(255,255,255,.9); --border:rgba(12,25,45,.11); --border2:rgba(178,132,20,.36);
+ --text:#111A28; --text2:#33445C; --muted:#66768C;
+ --up:#0B8F62; --down:#D92D4B; --gold:#B8860B; --gold2:#8F6B08; --accent:#B8860B; --accent2:#8F6B08;
+ --teal:#B8860B; --teal-dim:rgba(184,134,11,.1); --teal-br:rgba(184,134,11,.34);
+ --shadow:0 14px 34px rgba(30,40,60,.10);
+}
+html,body{background:var(--bg);color:var(--text)}
+body::before{background:radial-gradient(900px 520px at 88% -12%,rgba(245,196,81,.13),transparent 62%),radial-gradient(700px 460px at -18% 18%,rgba(34,197,139,.08),transparent 60%)}
+body::after{opacity:.22;background-image:linear-gradient(rgba(154,180,220,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(154,180,220,.04) 1px,transparent 1px)}
+#app{max-width:520px}
+#header{background:linear-gradient(180deg,var(--bg) 12%,rgba(7,11,18,.72));border-bottom:1px solid transparent}
+html[data-theme="light"] #header{background:linear-gradient(180deg,rgba(245,243,236,.98),rgba(245,243,236,.8))}
+.brand-logo{background:linear-gradient(115deg,#FFF4CF,var(--gold) 45%,#E9A93D);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.brand-mark{background:linear-gradient(150deg,rgba(245,196,81,.2),rgba(245,196,81,.04));border-color:var(--gold-br)}
+.brand-mark i{background:linear-gradient(180deg,var(--gold2),#E0A534)}
+.brand-mark::after{box-shadow:0 0 18px rgba(245,196,81,.22)}
+.icon-btn{background:var(--card);border-color:var(--border);color:var(--text2)}
+.icon-btn:active{background:var(--gold-dim);border-color:var(--gold-br)}
+#lang-btn{background:var(--gold-dim);border-color:var(--gold-br);color:var(--gold)}
+html[data-theme="light"] #lang-btn{color:#7A5B05}
+.card,.stat-box,.hero,#chart-wrap,.sig-row,.hist-row,.ai-block,.rec-card,.tool-card{
+ border-color:var(--border);background:var(--card);box-shadow:var(--shadow),inset 0 1px 0 rgba(255,255,255,.035)}
+.hero{background:linear-gradient(150deg,rgba(245,196,81,.13),rgba(14,25,43,.82) 52%,rgba(10,18,32,.94));border-color:var(--gold-br)}
+html[data-theme="light"] .hero{background:linear-gradient(150deg,#FFF7DE,#FFFFFF 60%)}
+.hero::after{background:radial-gradient(circle,rgba(245,196,81,.18),transparent 65%)}
+.hero-price{font-size:30px;letter-spacing:-.7px}
+.hero-live{color:var(--gold);border-color:var(--gold-br);background:var(--gold-dim)}
+.hero-live i{background:var(--gold)}
+.hero-cta{color:var(--gold)}
+.tf-row-home .tf-btn.active,.tf-btn.active{background:var(--gold);border-color:var(--gold);color:#231A05;box-shadow:0 5px 18px rgba(245,196,81,.25)}
+.tf-row-home .tf-btn{background:var(--bg3);color:var(--text2)}
+.mkt-btn,.pair-chip{background:var(--bg3);border-color:var(--border);color:var(--text2)}
+.mkt-btn.active,.mkt-btn.active-all,.pair-chip.active{background:var(--gold-dim);border-color:var(--gold-br);color:var(--gold)}
+html[data-theme="light"] .mkt-btn.active,html[data-theme="light"] .pair-chip.active,html[data-theme="light"] .mkt-btn.active-all{color:#6E5005}
+#tabs{background:linear-gradient(180deg,rgba(10,18,32,.9),rgba(7,11,18,.99));border-top-color:var(--border)}
+html[data-theme="light"] #tabs{background:rgba(255,255,255,.96)}
+#tabs{grid-template-columns:repeat(5,1fr)}
+.tab.active{color:var(--gold);background:radial-gradient(circle at 50% 30%,rgba(245,196,81,.18),transparent 70%)}
+.tab.active svg{filter:drop-shadow(0 0 7px rgba(245,196,81,.5))}
+.tab{font-size:8.5px}
+.pbar i{background:linear-gradient(90deg,var(--gold),var(--up))}
+#ai-btn{background:linear-gradient(96deg,var(--gold),#E0A534);color:#1C1403;box-shadow:0 8px 22px rgba(245,196,81,.22)}
+#toast{background:var(--navy2);border-color:var(--border2);color:var(--text)}
+.sheet-panel{background:var(--navy);border-top-color:var(--border)}
+.sheet-item{color:var(--text)}
+.sheet-item svg{color:var(--gold)}
+.notice-panel{background:var(--navy);border-color:var(--border)}
+.worker-input,input,select,textarea{background:var(--bg3);color:var(--text);border-color:var(--border)}
+input:focus,select:focus,textarea:focus{border-color:var(--gold-br);box-shadow:0 0 0 3px var(--gold-dim)}
+.action-btn{color:var(--gold);background:var(--gold-dim);border-color:var(--gold-br)}
+.tag.live{color:var(--up);border-color:rgba(34,197,139,.38);background:rgba(34,197,139,.1)}
+.tag.ref{color:var(--gold);border-color:var(--gold-br);background:var(--gold-dim)}
+.tag.stale{color:#D99B1C;border-color:rgba(217,155,28,.38);background:rgba(217,155,28,.1)}
+.empty-state .es-badge{color:var(--down);border-color:rgba(240,80,110,.3);background:rgba(240,80,110,.1)}
+#chart-wrap{background:var(--bg2);height:clamp(300px,46vh,420px)}
+.lwc-box{position:absolute;inset:0 0 132px 0;z-index:1;display:none}
+.lwc-mini{position:absolute;left:0;right:0;height:64px;z-index:1;display:none;border-top:1px solid var(--border);background:var(--bg2)}
+#lwc-rsi{bottom:64px}#lwc-macd{bottom:0;height:64px}
+html[dir="rtl"] .lwc-mini{direction:ltr}
+.chart-live #lwc-main,.chart-live .lwc-mini{display:block}
+.chart-live #main-chart,.chart-live #chart-tip{display:none!important}
+.chart-meta{padding-bottom:12px}
+#chart-err{z-index:6;background:var(--bg2)}
+html[data-theme="light"] #chart-err{background:rgba(255,255,255,.94)}
+.chart-tools{display:flex;gap:5px;overflow-x:auto;scrollbar-width:none;padding:7px 0 2px}
+.chart-tools::-webkit-scrollbar{display:none}
+.chart-tools .ct{flex:0 0 auto;font-family:var(--mono);font-size:9px;padding:5px 9px;border-radius:7px;border:1px solid var(--border);background:var(--bg3);color:var(--muted);cursor:pointer}
+.chart-tools .ct.on{border-color:var(--gold-br);background:var(--gold-dim);color:var(--gold)}
+
+/* ── Recommendations ── */
+.rec-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:10px 2px 8px}
+.rec-title{font-size:18px;font-weight:800;letter-spacing:.2px}
+.scan-status{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:9px;color:var(--muted)}
+.scan-dot{width:7px;height:7px;border-radius:50%;background:var(--muted)}
+.scan-dot.on{background:var(--up);animation:pulse 1.8s infinite}
+.scan-dot.busy{background:var(--gold);animation:pulse .8s infinite}
+.scan-dot.off{background:var(--down)}
+.scan-bar{height:3px;background:var(--bg4);border-radius:3px;overflow:hidden;margin:6px 2px 10px}
+.scan-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--up));transition:width .4s}
+.rec-filters{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px;margin-bottom:8px}
+.rec-filters::-webkit-scrollbar{display:none}
+.rec-filters select{width:auto!important;min-width:82px;padding:7px 9px;font-size:10px!important;font-family:var(--mono)}
+.rec-card{padding:13px;border-radius:16px;margin-bottom:10px;border:1px solid var(--border)}
+.rec-card .rc-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.rc-pair{font-family:var(--mono);font-size:15px;font-weight:700}
+.rc-tf{font-family:var(--mono);font-size:8.5px;color:var(--muted);margin-inline-start:6px}
+.rc-price{font-family:var(--mono);font-size:15px;font-weight:600}
+.rc-verdict{display:inline-flex;align-items:center;gap:5px;padding:4px 9px;border-radius:7px;font-family:var(--mono);font-size:10px;font-weight:700}
+.rc-verdict.buy{background:rgba(34,197,139,.14);color:var(--up);border:1px solid rgba(34,197,139,.35)}
+.rc-verdict.sell{background:rgba(240,80,110,.14);color:var(--down);border:1px solid rgba(240,80,110,.35)}
+.rc-verdict.wait{background:var(--gold-dim);color:var(--gold);border:1px solid var(--gold-br)}
+.rc-verdict.notrade{background:var(--bg4);color:var(--muted);border:1px solid var(--border)}
+.rc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin:9px 0 6px}
+.rc-kv{background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:5px 6px}
+.rc-kv b{display:block;font-family:var(--mono);font-size:10.5px;color:var(--text)}
+.rc-kv span{display:block;font-size:8px;color:var(--muted);margin-top:2px}
+.rc-why{font-size:10.5px;line-height:1.7;color:var(--text2);margin-top:5px}
+.rc-meta{display:flex;justify-content:space-between;gap:8px;font-family:var(--mono);font-size:8.5px;color:var(--muted);margin-top:7px;flex-wrap:wrap}
+.rc-actions{display:flex;gap:6px;margin-top:8px}
+.rc-actions button{flex:1;font-family:var(--mono);font-size:9px;padding:6px 4px;border-radius:7px;border:1px solid var(--border);background:var(--bg3);color:var(--text2);cursor:pointer}
+.rc-actions button.primary{border-color:var(--gold-br);background:var(--gold-dim);color:var(--gold)}
+.rc-conf{display:flex;align-items:center;gap:6px;margin-top:7px}
+.rc-conf .pbar{flex:1}
+.rc-conf span{font-family:var(--mono);font-size:9px;color:var(--muted)}
+
+/* ── Tools ── */
+.tool-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-bottom:12px}
+.tool-card{padding:12px;border-radius:14px;border:1px solid var(--border);cursor:pointer;text-align:start}
+.tool-card:active{transform:scale(.98)}
+.tool-card .ti{font-size:18px;line-height:1.2}
+.tool-card .tn{font-size:11.5px;font-weight:700;margin-top:5px;color:var(--text)}
+.tool-card .td{font-size:9px;color:var(--muted);margin-top:3px;line-height:1.5}
+.calc-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px}
+.calc-field label{display:block;font-size:9.5px;color:var(--muted);margin-bottom:4px;font-family:var(--mono)}
+.calc-field input,.calc-field select{padding:9px 10px;font-size:11px!important;font-family:var(--mono)}
+.calc-out{background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:10px;margin-top:8px}
+.calc-out .co-row{display:flex;justify-content:space-between;gap:8px;font-family:var(--mono);font-size:10.5px;padding:3px 0;color:var(--muted)}
+.calc-out .co-row b{color:var(--text)}
+.watch-row{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 0;border-bottom:1px solid var(--border);font-family:var(--mono);font-size:10.5px}
+.watch-row:last-child{border:0}
+.watch-row .wr-p{font-weight:700;color:var(--text)}
+.watch-row .wr-v{color:var(--muted)}
+.alert-row{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 0;border-bottom:1px solid var(--border);font-size:10px}
+.alert-row:last-child{border:0}
+.alert-row b{font-family:var(--mono)}
+.news-item{padding:9px 0;border-bottom:1px solid var(--border)}
+.news-item:last-child{border:0}
+.news-item a{color:var(--text);font-size:11px;line-height:1.6;font-weight:600;display:block}
+.news-item span{display:block;font-family:var(--mono);font-size:8.5px;color:var(--muted);margin-top:2px}
+.push-state{display:flex;align-items:center;gap:7px;padding:8px 10px;border-radius:10px;background:var(--bg3);border:1px solid var(--border);font-family:var(--mono);font-size:9.5px;color:var(--muted);margin-bottom:8px}
+.push-state .pd{width:7px;height:7px;border-radius:50%;background:var(--muted)}
+.push-state.on .pd{background:var(--up)}
+.push-state.off .pd{background:var(--down)}
+.notif-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid var(--border)}
+.notif-row:last-child{border:0}
+.notif-row .nl{font-size:11px;font-weight:600}
+.notif-row .nd{font-size:9px;color:var(--muted);margin-top:2px;line-height:1.5}
+#theme-btn{font-size:15px;font-family:var(--sans)}
+html[data-theme="light"] #theme-btn{color:#6E5005}
+html[data-theme="light"] .rc-verdict.notrade{background:#EFEBE0;color:#66768C}
+html[data-theme="light"] .stat-num,html[data-theme="light"] .hero-price,html[data-theme="light"] .rc-pair,html[data-theme="light"] .sig-price{color:var(--text)}
+html[data-theme="light"] .card-title,html[data-theme="light"] .section-title,html[data-theme="light"] .set-label{color:var(--text2)}
+html[data-theme="light"] .sheet-panel{background:#FFFDF7}
+html[data-theme="light"] .notice-panel{background:#FFFDF7}
+html[data-theme="light"] .hero-bottom,html[data-theme="light"] .hero-src{color:#66768C}
+html[data-theme="light"] #toast{background:#FFFDF7;color:#111A28}
+html[data-theme="light"] #tabs .tab{color:#66768C}
+html[data-theme="light"] #tabs .tab.active{color:#8F6B08}
+html[data-theme="light"] .smc-row{background:#F7F4EA;color:#4A5A70}
+html[data-theme="light"] .smc-row b{color:#111A28}
+html[data-theme="light"] .lwc-mini{background:#FAF7EE}
+html[data-theme="light"] .brand-sub{color:#7D8794}
+
+/* tablet / desktop */
+@media(min-width:760px){
+ #app{max-width:1024px;padding-inline:18px}
+ #content{padding-inline:6px;padding-bottom:calc(94px + var(--safe-bot))}
+ #header{padding-inline:6px}
+ #tabs{max-width:1024px;padding-inline:24px;border-radius:18px 18px 0 0}
+ .stats-row{gap:12px}
+ .stat-box{padding:15px 10px}
+ .stat-num{font-size:23px}
+ #sig-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ #sig-list .empty-state{grid-column:1/-1}
+ #chart-wrap{height:clamp(380px,52vh,520px)}
+ .lwc-box{inset:0 0 132px 0}
+ .rec-grid{grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px;display:grid}
+ .rec-card{margin-bottom:0}
+ .tool-grid{grid-template-columns:repeat(4,1fr)}
+ .screen-title,.rec-title{font-size:20px}
+ .hero-price{font-size:34px}
+ .hero{padding:18px}
+ .calc-row{grid-template-columns:repeat(4,1fr)}
+ .more-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start}
+}
+@media(min-width:1100px){#app{max-width:1120px}}
+@media(max-width:380px){#tabs .tab{font-size:7.5px}.hero-price{font-size:24px}.rc-grid{grid-template-columns:repeat(2,1fr)}}
+
+.rec-card.buy{border-inline-start:3px solid var(--up)}
+.rec-card.sell{border-inline-start:3px solid var(--down)}
+.rc-line{display:flex;justify-content:space-between;gap:8px;font-family:var(--mono);font-size:10.5px;padding:3px 0;color:var(--muted)}
+.rc-line b{color:var(--text)}
+.rc-meta .status.win,.status.win{color:var(--up)}
+.rc-meta .status.loss,.status.loss{color:var(--down)}
+.conf{position:relative;margin-top:8px;background:var(--bg4);border-radius:6px;height:16px;overflow:hidden}
+.conf i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--up));opacity:.35;transition:width .4s}
+.conf span{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:8.5px;color:var(--text2);font-weight:600}
+.rc-why{display:flex;flex-wrap:wrap;gap:4px}
+.rc-why span{font-size:8.5px;border:1px solid var(--border);border-radius:5px;padding:2px 6px;color:var(--text2);background:var(--bg3)}
+.rc-btn{width:100%;margin-top:9px;padding:7px;font-family:var(--mono);font-size:9px}
+.log-row{display:flex;align-items:center;justify-content:space-between;gap:6px;flex-wrap:wrap;padding:8px 0;border-bottom:1px solid var(--border);font-family:var(--mono);font-size:9.5px}
+.log-row:last-child{border:0}
+.log-main,.log-side{display:flex;align-items:center;gap:6px}
+.log-main b{font-size:10.5px}
+.log-pnl{font-weight:700}
+.log-pnl.up,.calc-line b.up{color:var(--up)}
+.log-pnl.down,.calc-line b.down{color:var(--down)}
+.status.win{color:var(--up)}
+.status.loss{color:var(--down)}
+.status.pending{color:var(--gold)}
+.status.expired{color:var(--muted)}
+.calc-line{display:flex;justify-content:space-between;gap:8px;font-family:var(--mono);font-size:10.5px;padding:4px 0;color:var(--muted)}
+.calc-line b{color:var(--text)}
+.calc-hint{font-size:9px;color:var(--muted);line-height:1.6;margin-top:4px;display:block}
+.perf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center}
+.perf-grid>div{background:var(--bg4);border:1px solid var(--border);border-radius:9px;padding:8px 4px}
+.perf-grid b{display:block;font-family:var(--mono);font-size:14px;color:var(--gold)}
+.perf-grid span{display:block;font-size:8px;color:var(--muted);margin-top:2px}
+.news-row{display:flex;gap:8px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--border)}
+.news-row:last-of-type{border:0}
+.news-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);margin-top:5px;flex:0 0 auto}
+.news-t{font-size:10.5px;line-height:1.65;color:var(--text2)}
+.mini-x{border:0;background:transparent;color:var(--muted);font-size:11px;cursor:pointer;padding:2px 5px}
+.watch-row span{color:var(--gold)}
+.alert-row button{background:transparent;border:0;color:var(--muted)}
+.empty-state .rc-meta{justify-content:center;margin-top:5px}
+@media(max-width:380px){.perf-grid{grid-template-columns:repeat(2,1fr)}}
+.news-dot.imp-high{background:#f0506e;box-shadow:0 0 0 3px rgba(240,80,110,.15)}
+.news-dot.imp-med{background:#f0b429}
+.news-dot.imp-low{background:#22c58b}
 </style>
 </head>
 <body>
@@ -516,6 +751,7 @@ html[dir=ltr] .sheet-panel{animation:slideInL .22s ease}
     <span class="brand-txt"><span class="brand-logo">ROZLF</span><span class="brand-sub">Trade Smarter</span></span>
   </div>
   <div class="hdr-right">
+    <button class="icon-btn" id="theme-btn" title="Theme" aria-label="Theme">☾</button>
     <button class="icon-btn" id="lang-btn" title="Language">EN</button>
     <button class="icon-btn has-dot" id="bell-btn" aria-label="Notifications">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 01-3.4 0"/></svg>
@@ -604,6 +840,9 @@ html[dir=ltr] .sheet-panel{animation:slideInL .22s ease}
     <div class="tf-btn" data-t="D1">D1</div>
   </div>
   <div id="chart-wrap">
+    <div id="lwc-main" class="lwc-box"></div>
+    <div id="lwc-rsi" class="lwc-mini"></div>
+    <div id="lwc-macd" class="lwc-mini"></div>
     <canvas id="main-chart"></canvas>
     <div id="chart-tip"></div>
     <div class="chart-loading" id="chart-load" style="display:none"><div class="dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div><span style="font-size:11px" data-i18n="loadingCandles">جاري التحميل…</span></div>
@@ -673,7 +912,7 @@ html[dir=ltr] .sheet-panel{animation:slideInL .22s ease}
 <!-- SETTINGS -->
 <div class="screen" id="screen-settings">
   <div class="card">
-    <div class="section-hd"><span class="section-title" data-i18n="moreTitle">المزيد</span><span class="ver-badge">v3.4</span></div>
+    <div class="section-hd"><span class="section-title" data-i18n="moreTitle">المزيد</span><span class="ver-badge">v3.5</span></div>
     <button class="sheet-item" id="open-history" style="width:100%;margin-bottom:6px">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg>
       <span data-i18n="historyTitle">سجل الإشارات</span><span style="margin-inline-start:auto;color:var(--muted)">›</span>
@@ -724,35 +963,171 @@ html[dir=ltr] .sheet-panel{animation:slideInL .22s ease}
   </div>
   <div class="card">
     <div class="card-title" data-i18n="about">حول التطبيق</div>
-    <div class="set-row"><div class="set-label" data-i18n="version">الإصدار</div><div class="set-desc">ROZLF v3.4</div></div>
+    <div class="set-row"><div class="set-label" data-i18n="version">الإصدار</div><div class="set-desc">ROZLF v3.5</div></div>
     <div class="set-row"><div class="set-label" data-i18n="license">الميزات</div><div class="set-desc" style="color:var(--up)" data-i18n="allFree">مجانية بالكامل</div></div>
     <div class="set-row"><div class="set-desc" data-i18n="noPremium"></div></div>
     <div class="set-row"><div><div class="set-label" data-i18n="wakeTitle">إبقاء الشاشة مضاءة</div><div class="set-desc" data-i18n="wakeDesc"></div></div><div class="toggle on" data-k="wake"></div></div>
     <div class="set-row"><div><div class="set-label" data-i18n="clearData">مسح بيانات التطبيق</div></div><button class="action-btn" id="clear-all" style="color:var(--down)">مسح</button></div>
   </div>
 </div>
+
+<!-- RECOMMENDATIONS -->
+<div class="screen" id="screen-recs">
+  <div class="rec-head">
+    <div class="rec-title" data-i18n="recTitle">التوصيات | RECOMMENDATIONS</div>
+    <div class="scan-status"><span class="scan-dot" id="rec-dot"></span><span id="rec-status">—</span></div>
+  </div>
+  <div class="card" style="padding:11px 12px">
+    <div style="display:flex;gap:8px;align-items:center">
+      <button class="action-btn" id="rec-scan" style="flex:1;padding:9px">⟳ <span data-i18n="scanNow">مسح السوق الآن</span></button>
+      <button class="action-btn" id="rec-auto" style="padding:9px 11px" title="Auto">AUTO</button>
+    </div>
+    <div class="scan-bar"><i id="rec-bar"></i></div>
+    <div class="rc-meta"><span id="rec-last">—</span><span id="rec-src">—</span></div>
+  </div>
+  <div class="stats-row" style="margin-top:9px">
+    <div class="stat-box"><div class="stat-num" id="rec-n-buy">0</div><div class="stat-label" data-i18n="buy">شراء</div></div>
+    <div class="stat-box"><div class="stat-num" id="rec-n-sell">0</div><div class="stat-label" data-i18n="sell">بيع</div></div>
+    <div class="stat-box"><div class="stat-num" style="color:var(--gold)" id="rec-n-wait">0</div><div class="stat-label">WAIT</div></div>
+    <div class="stat-box"><div class="stat-num" id="rec-n-notrade">0</div><div class="stat-label">NO TRADE</div></div>
+  </div>
+  <div class="rec-filters">
+    <select id="rec-pair-filter"><option value="all" data-i18n="allPairs">كل الأزواج</option></select>
+    <select id="rec-tf-filter"><option value="all">TF: ALL</option><option>M5</option><option>M15</option><option>H1</option><option>H4</option><option>D1</option></select>
+    <select id="rec-type-filter"><option value="all">ALL</option><option value="BUY">BUY</option><option value="SELL">SELL</option><option value="WAIT">WAIT</option><option value="NOTRADE">NO TRADE</option></select>
+  </div>
+  <div id="rec-list" class="rec-grid"></div>
+  <div class="card" id="rec-empty" style="display:none">
+    <div class="empty-state" style="padding:6px 0">
+      <div class="es-badge">NO TRADE</div>
+      <div class="es-text" data-i18n="recNoTrade">لا توجد فرصة مؤكدة الآن. الماسح يراقب السوق تلقائياً.</div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:10px">
+    <div class="section-hd"><span class="section-title" data-i18n="recLog">سجل التوصيات ونتائجها</span><span class="rc-meta" id="rec-stats-line">—</span></div>
+    <div class="ai-note" data-i18n="recLogNote">تُسجَّل التوصيات بسعر الدخول الحقيقي وتُقيَّم لاحقاً من الشموع. لا تُحتسب الصفقات غير المكتملة.</div>
+    <div id="rec-log"></div>
+    <button class="action-btn" id="rec-clear" style="margin-top:8px;color:var(--down)">🗑 <span data-i18n="clearLog">مسح السجل</span></button>
+  </div>
+</div>
+
+<!-- TOOLS -->
+<div class="screen" id="screen-tools">
+  <div class="screen-title" data-i18n="toolsTitle">أدوات التداول</div>
+  <div class="tool-grid">
+    <div class="tool-card" data-tool="risk"><div class="ti">⚖️</div><div class="tn" data-i18n="riskCalc">حاسبة المخاطرة والحجم</div><div class="td" data-i18n="riskCalcD">حجم الصفقة حسب نسبة المخاطرة</div></div>
+    <div class="tool-card" data-tool="pnl"><div class="ti">📈</div><div class="tn" data-i18n="pnlCalc">حاسبة الربح/الخسارة</div><div class="td" data-i18n="pnlCalcD">بالنقاط والدولار</div></div>
+    <div class="tool-card" data-tool="pips"><div class="ti">📐</div><div class="tn" data-i18n="pipsCalc">حاسبة النقاط</div><div class="td" data-i18n="pipsCalcD">Pips بين الدخول والخروج</div></div>
+    <div class="tool-card" data-tool="watch"><div class="ti">⭐</div><div class="tn" data-i18n="watchlist">قائمة المراقبة</div><div class="td" data-i18n="watchlistD">أزواجك المفضلة وأسعارها</div></div>
+    <div class="tool-card" data-tool="alerts"><div class="ti">🔔</div><div class="tn" data-i18n="alerts">تنبيهات الأسعار</div><div class="td" data-i18n="alertsD">نبّهني عند وصول السعر</div></div>
+    <div class="tool-card" data-tool="news"><div class="ti">📰</div><div class="tn" data-i18n="news">أخبار السوق</div><div class="td" data-i18n="newsD">عناوين حقيقية عند توفرها</div></div>
+    <div class="tool-card" data-tool="calendar"><div class="ti">🗓️</div><div class="tn" data-i18n="calendarT">التقويم الاقتصادي</div><div class="td" data-i18n="calendarD">أحداث حقيقية هذا الأسبوع</div></div>
+    <div class="tool-card" data-tool="perf"><div class="ti">📊</div><div class="tn" data-i18n="performance">أداء التوصيات</div><div class="td" data-i18n="performanceD">إحصاءات من نتائج حقيقية</div></div>
+    <div class="tool-card" data-tool="notif"><div class="ti">📲</div><div class="tn" data-i18n="notifications">الإشعارات</div><div class="td" data-i18n="notificationsD">Push وتنبيهات داخل التطبيق</div></div>
+  </div>
+
+  <div class="card calc-card" id="tool-risk">
+    <div class="section-hd"><span class="section-title" data-i18n="riskCalc">حاسبة المخاطرة والحجم</span><span class="tag ref">RISK</span></div>
+    <div class="calc-row">
+      <div class="calc-field"><label data-i18n="balance">الرصيد ($)</label><input id="calc-balance" type="number" inputmode="decimal" value="1000"></div>
+      <div class="calc-field"><label data-i18n="riskPct">المخاطرة %</label><input id="calc-risk" type="number" inputmode="decimal" step="0.1" value="1"></div>
+      <div class="calc-field"><label data-i18n="slPips">الستوب (نقاط)</label><input id="calc-sl" type="number" inputmode="decimal" value="20"></div>
+      <div class="calc-field"><label data-i18n="pair">الزوج</label><select id="calc-pair"></select></div>
+    </div>
+    <div class="calc-out" id="calc-risk-out"></div>
+  </div>
+
+  <div class="card calc-card" id="tool-pnl">
+    <div class="section-hd"><span class="section-title" data-i18n="pnlCalc">حاسبة الربح/الخسارة</span><span class="tag ref">P&L</span></div>
+    <div class="calc-row">
+      <div class="calc-field"><label data-i18n="pair">الزوج</label><select id="pnl-pair"></select></div>
+      <div class="calc-field"><label data-i18n="lots">حجم اللوت</label><input id="pnl-lots" type="number" inputmode="decimal" step="0.01" value="0.10"></div>
+      <div class="calc-field"><label data-i18n="entry">سعر الدخول</label><input id="pnl-entry" type="number" inputmode="decimal" step="any"></div>
+      <div class="calc-field"><label data-i18n="exit">سعر الخروج</label><input id="pnl-exit" type="number" inputmode="decimal" step="any"></div>
+    </div>
+    <div class="calc-out" id="calc-pnl-out"></div>
+  </div>
+
+  <div class="card calc-card" id="tool-pips">
+    <div class="section-hd"><span class="section-title" data-i18n="pipsCalc">حاسبة النقاط</span><span class="tag ref">PIPS</span></div>
+    <div class="calc-row">
+      <div class="calc-field"><label data-i18n="pair">الزوج</label><select id="pips-pair"></select></div>
+      <div class="calc-field"><label data-i18n="entry">سعر الدخول</label><input id="pips-entry" type="number" inputmode="decimal" step="any"></div>
+      <div class="calc-field"><label data-i18n="exit">سعر الخروج</label><input id="pips-exit" type="number" inputmode="decimal" step="any"></div>
+      <div class="calc-field"><label data-i18n="slTarget">ستوب/هدف</label><button class="action-btn" id="pips-use-live" style="width:100%;padding:9px;font-size:10px" data-i18n="useLive">استخدم السعر الحي</button></div>
+    </div>
+    <div class="calc-out" id="calc-pips-out"></div>
+  </div>
+
+  <div class="card calc-card" id="tool-watch">
+    <div class="section-hd"><span class="section-title" data-i18n="watchlist">قائمة المراقبة</span><button class="action-btn" id="watch-add-btn" style="padding:4px 8px;font-size:9px">+ ADD</button></div>
+    <select id="watch-select" style="margin-bottom:6px"></select>
+    <div id="watch-list"></div>
+  </div>
+
+  <div class="card calc-card" id="tool-alerts">
+    <div class="section-hd"><span class="section-title" data-i18n="alerts">تنبيهات الأسعار</span><span class="tag ref" id="alerts-count">0</span></div>
+    <div class="calc-row">
+      <div class="calc-field"><label data-i18n="pair">الزوج</label><select id="alert-pair"></select></div>
+      <div class="calc-field"><label data-i18n="targetPrice">السعر المستهدف</label><input id="alert-price" type="number" inputmode="decimal" step="any"></div>
+      <div class="calc-field"><label data-i18n="direction">الاتجاه</label><select id="alert-dir"><option value="above">فوق ↑</option><option value="below">تحت ↓</option></select></div>
+      <div class="calc-field"><label>&nbsp;</label><button class="action-btn" id="alert-add" style="width:100%;padding:9px;font-size:10px">+ <span data-i18n="addAlert">إضافة تنبيه</span></button></div>
+    </div>
+    <div id="alert-list"></div>
+  </div>
+
+  <div class="card calc-card" id="tool-news">
+    <div class="section-hd"><span class="section-title" data-i18n="news">أخبار السوق</span><button class="action-btn" id="news-refresh" style="padding:4px 8px;font-size:9px">⟳</button></div>
+    <div id="news-list"><div class="ai-note" data-i18n="newsLoading">جاري تحميل الأخبار…</div></div>
+  </div>
+  <div class="card calc-card" id="tool-calendar">
+    <div class="section-hd"><span class="section-title" data-i18n="calendarT">التقويم الاقتصادي</span><button class="action-btn" id="calendar-refresh" style="padding:4px 8px;font-size:9px">⟳</button></div>
+    <div id="calendar-list"><div class="ai-note" data-i18n="calendarLoading">جاري تحميل التقويم…</div></div>
+  </div>
+
+  <div class="card calc-card" id="tool-perf">
+    <div class="section-hd"><span class="section-title" data-i18n="performance">أداء التوصيات</span><span class="tag ref" id="perf-tag">—</span></div>
+    <div class="calc-out" id="perf-out"></div>
+    <div class="ai-note" data-i18n="perfNote">تُحسب فقط التوصيات المكتملة بسعر حقيقي. لا تُعرض نسب وهمية.</div>
+  </div>
+
+  <div class="card calc-card" id="tool-notif">
+    <div class="section-hd"><span class="section-title" data-i18n="notifications">الإشعارات</span><span class="tag ref">PUSH</span></div>
+    <div class="push-state" id="push-state"><span class="pd"></span><span id="push-text" data-i18n="pushChecking">جاري التحقق…</span></div>
+    <button class="action-btn" id="push-enable" style="width:100%;padding:10px;margin-bottom:8px" data-i18n="enablePush">تفعيل إشعارات Push</button>
+    <div class="notif-row"><div><div class="nl" data-i18n="ntRec">توصية جديدة</div><div class="nd" data-i18n="ntRecD">عند ظهور BUY أو SELL جديد</div></div><div class="toggle on" data-nt="newRec"></div></div>
+    <div class="notif-row"><div><div class="nl" data-i18n="ntSignal">إشارة شراء/بيع</div><div class="nd" data-i18n="ntSignalD">تغيير اتجاه الإشارة</div></div><div class="toggle on" data-nt="signal"></div></div>
+    <div class="notif-row"><div><div class="nl" data-i18n="ntPrice">وصول السعر</div><div class="nd" data-i18n="ntPriceD">تنبيهات الأسعار التي تضيفها</div></div><div class="toggle on" data-nt="price"></div></div>
+    <div class="notif-row"><div><div class="nl" data-i18n="ntLevel">كسر دعم/مقاومة</div><div class="nd" data-i18n="ntLevelD">عند كسر مستوى مهم</div></div><div class="toggle on" data-nt="level"></div></div>
+    <div class="ai-note" data-i18n="pushNote">على iPhone: أضف التطبيق إلى الشاشة الرئيسية ثم فعّل الإشعارات. تعمل عبر Service Worker وVAPID.</div>
+  </div>
+</div>
 </div><!--/content-->
 
 <div id="tabs">
-  <div class="tab" data-s="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 2a4 4 0 014 4v1h1a3 3 0 110 6h-1v1a4 4 0 01-8 0v-1H7a3 3 0 110-6h1V6a4 4 0 014-4z"/><path d="M9 12h6"/></svg><span data-i18n="navAI">التحليل</span></div>
   <div class="tab active" data-s="signals"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg><span data-i18n="navHome">الرئيسية</span></div>
   <div class="tab" data-s="chart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 3v18h18"/><path d="M7 14l4-5 3 3 5-7"/></svg><span data-i18n="navMarket">سوق الفوركس</span></div>
+  <div class="tab" data-s="recs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 19V5"/><path d="M8 15l4-4 3 3 5-6"/><circle cx="8" cy="15" r="1.2"/><circle cx="12" cy="11" r="1.2"/><circle cx="15" cy="14" r="1.2"/></svg><span data-i18n="navRecs">التوصيات</span></div>
+  <div class="tab" data-s="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 2a4 4 0 014 4v1h1a3 3 0 110 6h-1v1a4 4 0 01-8 0v-1H7a3 3 0 110-6h1V6a4 4 0 014-4z"/><path d="M9 12h6"/></svg><span data-i18n="navAI">التحليل</span></div>
   <div class="tab" data-s="settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span data-i18n="navMore">المزيد</span></div>
 </div>
 <div class="sheet" id="menu-sheet">
   <div class="sheet-bg" data-close-sheet></div>
   <div class="sheet-panel">
-    <div class="sheet-title">ROZLF · v3.4</div>
+    <div class="sheet-title">ROZLF · v3.5</div>
     <button class="sheet-item" data-go="signals"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg><span data-i18n="navHome">الرئيسية</span></button>
     <button class="sheet-item" data-go="chart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 14l4-5 3 3 5-7"/></svg><span data-i18n="navMarket">سوق الفوركس</span></button>
     <button class="sheet-item" data-go="ai"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 014 4v1h1a3 3 0 110 6h-1v1a4 4 0 01-8 0v-1H7a3 3 0 110-6h1V6a4 4 0 014-4z"/></svg><span data-i18n="navAI">التحليل</span></button>
+    <button class="sheet-item" data-go="recs"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19V5"/><path d="M8 15l4-4 3 3 5-6"/></svg><span data-i18n="navRecs">التوصيات</span></button>
+    <button class="sheet-item" data-go="tools"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a4 4 0 01-5.4 5.4L4 17v3h3l5.3-5.3a4 4 0 015.4-5.4l-2.3 2.3 2.7 2.7 2.3-2.3z"/></svg><span data-i18n="navTools">الأدوات</span></button>
     <button class="sheet-item" data-go="history"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg><span data-i18n="historyTitle">سجل الإشارات</span></button>
     <button class="sheet-item" data-go="settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg><span data-i18n="navMore">المزيد</span></button>
-    <div class="sheet-foot">ROZLF v3.4 · جميع الميزات مجانية<br>Real data only · DATA UNAVAILABLE عند تعذّر المصدر</div>
+    <div class="sheet-foot">ROZLF v3.5 · جميع الميزات مجانية<br>Real data only · DATA UNAVAILABLE عند تعذّر المصدر</div>
   </div>
 </div>
 <div id="toast"></div>
 </div>
+<script src="vendor/lightweight-charts.js"></script>
 <script src="config.js"></script>
 <script>
 (function(){
@@ -970,7 +1345,7 @@ const PAIRS=[
 ];
 const FLAGS={EUR:'🇪🇺',USD:'🇺🇸',GBP:'🇬🇧',JPY:'🇯🇵',AUD:'🇦🇺',CAD:'🇨🇦',NZD:'🇳🇿',CHF:'🇨🇭',XAU:'🥇'};
 const PMAP=Object.fromEntries(PAIRS.map(p=>[p.sym,p]));
-const TFS={M5:{td:'5min',ms:3e5},M15:{td:'15min',ms:9e5},H1:{td:'1h',ms:36e5},H4:{td:'4h',ms:144e5},D1:{td:'1day',ms:864e5}};
+const TFS={M5:{td:'5min',ms:3e5},M15:{td:'15min',ms:9e5},M30:{td:'30min',ms:18e5},H1:{td:'1h',ms:36e5},H4:{td:'4h',ms:144e5},D1:{td:'1day',ms:864e5}};
 const OTC_LIST=['EURUSD-OTC','GBPUSD-OTC','USDJPY-OTC','AUDUSD-OTC','USDCAD-OTC','XAUUSD-OTC','NZDUSD-OTC','USDCHF-OTC'];
 const SMARTY_LIST=['EURUSD','GBPUSD','USDJPY','AUDUSD','USDCAD','NZDUSD','USDCHF','XAUUSD'];
 const GEMINI_MODELS=['gemini-2.5-flash','gemini-2.5-flash-lite','gemini-2.0-flash','gemini-1.5-flash'];
@@ -990,7 +1365,18 @@ const state={
 };
 state.settings.ind=Object.assign({},DEFAULT_SETTINGS.ind,state.settings.ind||{});
 LANG=state.settings.lang||'ar';
-function saveSettings(){LS.set('rozlF_settings_v32',state.settings)}
+try{
+ const legacy=state.settings.geminiKey||'';
+ const sessionKey=sessionStorage.getItem('rozlF_gemini_key')||'';
+ state.settings.geminiKey=sessionKey||legacy;
+ if(legacy)sessionStorage.setItem('rozlF_gemini_key',legacy);
+}catch(e){}
+function saveSettings(){
+ const copy=Object.assign({},state.settings);delete copy.geminiKey;
+ LS.set('rozlF_settings_v32',copy);
+ try{sessionStorage.setItem('rozlF_gemini_key',state.settings.geminiKey||'')}catch(e){}
+}
+saveSettings();
 
 /* ────────── UI utils ────────── */
 function toast(msg){const el=$('#toast');el.textContent=msg;el.classList.add('show');clearTimeout(state.toastT);state.toastT=setTimeout(()=>el.classList.remove('show'),2400)}
@@ -1541,6 +1927,7 @@ function migrateHistory(){
 }
 /* ────────── Chart ────────── */
 function drawChart(){
+ if(window.RozlfChart&&window.RozlfChart.render&&window.RozlfChart.render(state))return;
  const cv=$('#main-chart');if(!cv)return;
  const wrap=$('#chart-wrap');const W=wrap.clientWidth,H=wrap.clientHeight;
  const dpr=Math.min(window.devicePixelRatio||1,2.5);
@@ -1846,18 +2233,21 @@ async function runAI(){
   if(!res)throw new Error('nokey');
   renderAIOut(res.txt,res.model,false);
  }catch(e){
-  const noKey=String(e&&e.message)==='nokey';
+  const noKey=String(e&&e.message)==='nokey'||e.code==='NO_KEY';
   if(noKey&&!sum){
    try{if(!state.candles.length)await openChart(false);sum=dataSummary()}catch(_){}
   }
-  const loc=localAnalysis(sum);
-  if(loc){
+  const msg=noKey?(mode==='image'?t('aiImgNoData'):t('aiNoKey')):String(e.message||e);
+  out.innerHTML='<div style="color:var(--down);line-height:1.8">'+t('aiError')+': '+fmtAI(msg)+'</div>'+
+   '<div class="ai-note">'+t('aiNoKey')+'</div>'+
+   (sum?'<button class="action-btn" id="ai-local-btn" style="margin-top:8px">'+(LANG==='ar'?'إظهار تحليل فني محلي (ليس Gemini)':'Show local technical analysis (not Gemini)')+'</button>':'');
+  const lb=$('#ai-local-btn');
+  if(lb)lb.addEventListener('click',()=>{
+   const loc=localAnalysis(sum);if(!loc)return;
    renderAIOut(loc.text,'local',true);
-   if(noKey)out.insertAdjacentHTML('beforeend','<div class="ai-note">'+t(mode==='image'?'aiImgKey':'aiNoKey')+'</div>');
-   toast(t('aiLocal'));
-  }else{
-   out.innerHTML='<span style="color:var(--down)">'+t('aiError')+': '+fmtAI(noKey?(mode==='image'?t('aiImgNoData'):t('aiNoKey')):String(e.message||e))+'</span>';
-  }
+   out.insertAdjacentHTML('beforeend','<div class="ai-note">'+t('aiNoKey')+'</div>');
+  });
+  toast(noKey?t('aiNoKey'):t('aiError'));
  }
  setBusy(false);
 }
@@ -1976,7 +2366,11 @@ function readSettings(){
  $$('[data-k]').forEach(n=>{const k=n.getAttribute('data-k');const on=n.classList.contains('on');if(k==='wake')s.wake=on;else s.ind[k.replace(/^i-/,'')]=on});
  saveSettings();
 }
-function saveSettings(){LS.set('rozlF_settings_v32',state.settings)}
+function saveSettings(){
+ const copy=Object.assign({},state.settings);delete copy.geminiKey;
+ LS.set('rozlF_settings_v32',copy);
+ try{sessionStorage.setItem('rozlF_gemini_key',state.settings.geminiKey||'')}catch(e){}
+}
 
 let wakeLock=null;
 async function setWake(on){
@@ -2143,9 +2537,11 @@ function init(){
   try{const st=window.Capacitor.Plugins.StatusBar;if(st){st.setStyle({style:'DARK'});st.setBackgroundColor({color:'#050A12'});}}catch(e){}
  }
 }
+window.ROZLF_APP={state,PAIRS,PMAP,TFS,FLAGS,LS,t,toast,el,now,fmt,timeStr,dateStr,ageStr,tagEl,srcLabel,pipSize,computeIndicators,findLevels,computeSMC,analyzePair,loadOHLC,loadPrices,openChart,drawChart,renderIndicators,computeSignals,resolveHistory,setTab,applyLang,I18N,LANG:()=>LANG,setLang:v=>{LANG=v},workerBase,workerHealth,fetchJSON,dataSummary,renderDataNote,updateHeaderStatus,saveHistory,addSignal};
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 
 })();
 </script>
+<script src="app-v35.js"></script>
 </body>
 </html>
